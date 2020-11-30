@@ -3,88 +3,98 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
     <title>Component Library</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <h1>Welcome to himanshu's comonent library</h1> 
-    <p>I want to make a library which would be used to make all my project look good and consistent.</p>
+    <p >I want to make a library which would be used to make all my project look good and consistent.</p>
     <hr>
     <h2>@typography</h2>
 
     <h1>this is biggest heading</h1>
     <h2>this is the second biggest</h2>
     <p>this is the text used in paragraph</p>
+    <p>this paragraph have a <strong>bold </strong>text</p>
     <small>this text is relatively small</small>
 
     <hr>
     <h2>@containers</h2>
     <h3>fluid container</h3>
-    <div>this is the fluid container  and it will go till the end of the page</div>
+    <div class="container container-fluid" >this is the fluid container  and it will go till the end of the page</div>
     <h3>centered container</h3>
-    <div>this is the centered container  and it will go till the specified widths</div>
+    <div class="container container-center">this is the centered container  and it will go till the specified widths</div>
     <hr>
     <h2>@links</h2>
-    <a href="/">Primary</a>
-    <a href="/">Secondary</a>
+    <a class="link link-primary" href="/">Primary</a>
+    <a class="link link-secondary" href="/">Secondary</a>
     <hr>
     <h2>@lists</h2>
     <h3>unordered list</h3>
-    <ul>
+    <ul class="list-non-bullet">
         <li>Item one</li>
         <li>Item two</li>
         <li>Item three</li>
     </ul>
     <h3>Inline unordered list</h3>
-    <ul>
-        <li>Inline Item One</li>
-        <li>Inline Item Two</li>
+    <ul class="list-non-bullet">
+        <li class="list-item-inline">Inline Item One</li>
+        <li class="list-item-inline">Inline Item Two</li class="list-item-inline">
         <li>Inline Item Three</li>
     </ul>
     <h3>reverse ordered list</h3>
-    <ol>
+    <ol reversed>
         <li>milk</li>
         <li>egg</li>
         <li>bread</li>
     </ol>
     <hr>
     <h2>@nav</h2>
-    <nav>
-        <div>i am brand</div>
-        <ul>
-            <li><a href="/">home</a></li>
-            <li><a href="/">products</a></li>
-            <li><a href="/">about</a>
+    <nav class="nav container">
+        <div class="nav-brand">i am brand</div>
+        <ul class="list-non-bullet nav-pills">
+            <li class="list-item-inline"><a class="link link-active" href="/">home</a></li>
+            <li class="list-item-inline"><a class="link" href="/">products</a></li>
+            <li class="list-item-inline"><a class="link" href="/">about</a>
             </li>
         </ul>
     </nav>
     <hr>
     <h2>@header</h2>
-    <header>
-        <img src="images/hero.svg" alt=""/>
-        <h1>heading inside hero</h1>
+    <header class="hero">
+        <img class="hero-image" src="images/hero.svg" alt=""/>
+        <h1 class="hero-heading">Himanshu Rana the <span class="heading-inverted">web developer</span></h1>
     </header>
     <hr>
     <h2>@section</h2>
     
-    <section>
-        <h3>white section</h3>
-        <p>this will have white background</p>
+    <section class="section ">
+        <div class="container container-center">
+            <h1>white section</h1>
+            <p>this will have white background.We are an open community of developers building resources for a better Web, regardless of brand, browser, or platform. Anyone can contribute and each person who does makes us stronger. Together we can continue to drive innovation on the Web to serve the greater good. It starts here, with you.</p>
+        </div>
+        
     </section>
 
-    <section>
-        <h3>off white section</h3>
-        <p>this will have gray section</p>
+    <section class="section ow">
+        <div class="container container-center">
+            <h1>off white section</h1>
+            <p>this will have gray section.We are an open community of developers building resources for a better Web, regardless of brand, browser, or platform. Anyone can contribute and each person who does makes us stronger. Together we can continue to drive innovation on the Web to serve the greater good. It starts here, with you.</p>
+        </div>
+        
     </section>
     <hr>
     <h2>@footer</h2>
-    <footer>
-        <div>
+    <footer class="footer">
+        <div class="footer-header">
             some small heading inside footer
         </div>
-        <ul>
-            <li>social one</li>
-            <li>social two</li>
+        <ul class="social-links list-non-bullet">
+            <li class="list-item-inline" > <a class="link" href="/">social one</a> </li>
+            <li class="list-item-inline"> <a class="link" href="/">social two</a> </li>
             
+
         </ul>
     </footer>
 
