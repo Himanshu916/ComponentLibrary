@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learn Git </title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+   
+
+<h1>What is git?</h1>
+
+<ol>
+    <li>It is a system that record changes to files over time.</li>
+    <li>You can recall any specific version at any point of time.</li>
+    <li>Many people can easily collaborate on a project and can have their own version of project file on their computer.</li>
+</ol>
+<hr>
+<h1>Setting up Git</h1>
+
+<a href="https://git-scm.com/download/win">download git</a>
+<h2>check if git is installed or not</h2>
+<h3>---> git –version</h3>
+<p>Note:- firstly, we need to set up some couple of options like username and useremail.This is need to do because git wants to know who is making changes and so it can keep track of all changes.
+Now to set up username we need to run command git config - -global user.name “Himanshu rana”
+And to set up user email we need to run command git config - - user.email “hranaritsh@gmail.com”</p>
+
+<hr>
+
+<h1>There are some terms :-</h1>
+<h2>1.	Repository</h2>
+<p>A repo is a container for a project you want to track with git (e.g a website project) .
+    Now repo can be stored locally on your computer or remote which is an online service like github.</p>
+
+<p>So if you want to start with a git , you need to tell to the git that what is the name of that folder that you want to make it a git project or say git repository.</p>
+
+<p>
+    Now to create a repository , you need to navigate into that folder (you can navigate by command  cd “path of the folder”) and then run the mentioned command.</p>
+<h4>Command to make a git repository :-</h4>
+<strong>---> git init</strong>
+<p>after running this command a “.git file” will appear in your repository ,this “.git file” tells this is the repository which is being tracked by git and it is going to track all kind of changes that we make inside this project.</p>	  
+
+<h2>2.	Commit (safe points)</h2>
+<small>You can think of commit as safe points</small>
+
+<p>Suppose that you are playing a video game and then you come to a safe point such that if you are being killed in the game, you can continue the game again with that safe point.</p>
+<p>Similarly suppose that you are creating a website and after creating some specific part of your website (like creating navigation bar, creating some kind of feature ) then after you have finished with that particular part of your project, you can commit your project that is like creating it a safe point such that if your code is messed up you can rewind and go back to any commit in the commit history and can see what the code looks like.</p>
+<h4>We have three stages for any project</h4>
+
+<img style="width:90%" src="/images/changes.png" alt="">
+<hr>
+<h1>Git working</h1>
+<h2>Staging files</h2>
+<p>When we commit something ,all it does is take everything from staging area and create a commit from that.</p>
+<p>Now so before commiting anything we need to add the file into the staging area.</p>
+<p>Here is the question arises that why don’t we just commit straight away without adding changes to staging area?</p>
+<p>Well, answer for this is that by adding them to the staging area it allow us to review our changes before we make that commit. We should commit at logical point after developing certain features of our website or application.</p>
+<h4>command to add files to the staging area.</h4>
+      <strong> --->	git add filename</strong>
+<h4>  If there are more than 1 changes</h4>
+     <strong>	---> Git add .</strong>
+<h2>Commiting files</h2>
+<h4>We can commit the changes as </h4>
+<strong>---> git commit -m “a brief message to describe the commit”</strong>
+	<h4> To see the commit history </h4>
+     <strong>---> git log</strong>
+	<h4>  To see the commit history in one line </h4>
+     <strong>---> git log –oneline</strong>
+<h2>So how can we rewind things if we make mistake or messed up with our code</h2>
+<h3>There are three methods:-</h3>
+<ul>
+    <li><h4>checkout  - this is for read only</h4>
+        <p>you can see state of code at particular commit but can not make any changes there,you can checkout the particular commit as </p>
+        <strong>---> git checkout commitUniqueId</strong>
+        <p>commitUniqueId is the five digit expression we see when we run the command “git log --oneline”.</p>
+        <h4>To go back , you need to run </h4>
+        <strong>--->	git checkout master (see master is the branch , you don’t need to worry about this we will learn about branch after 1 minute.</strong>
+    </li>
+    <li>
+        <h4>revert - this makes another commit for undoing the specific commit.</h4>
+        <p>This is actually making a commit for deleting the specified commit , yes you can still visit that commit because we are not actually deleting the commit but we are making another commit for deleting the changes that we make in that specified commit.</p>
+        <strong>---> git revert commitUniqueId </strong>
+        <p> this command will make another commit for deleting the changes that we make in the specified commit(commitUniqueId) at top of all the commits in the commit history.</p>
+    </li>
+    <li>
+        <h4>reset   - this reset or delete the commits after the specified commit.</h4>
+        <p>This commit is going to potentially destroy the contents of your repository so be really careful before doing this.</p>
+        <p>Suppose that we have these commits in our commit history:</p>
+        <strong>F286814 – 4th commit  </strong> <br>
+        <strong>B7b2d3d – 3rd commit</strong> <br>
+        <strong>2d63d76 – 2nd commit</strong> <br>
+        <strong>B946a4e – 1st commit</strong><br>
+        <p>
+            
+	See if we want to work from 2nd commit and we don’t want the commits after the 2nd commit, we can reset our commit history as:-
+	
+        </p>
+        <strong>---> git reset commitUniqueId –hard</strong>
+    </li>
+</ul>
+<h2>Branching</h2>
+<h3>Master branch </h3>
+<p>When we create a new repository what we are doing is creating this master branch as well and when we have been making commits, we have been commiting to this master branch only.</p>
+<p>This master branch is going to represent the stable version of your code and normally it is going to be the code which is released or published.</p>
+<p>
+    Now we don’t want to try out new feature or new code on this branch just in case it messes the code .So what we really want to do if we want to have new feature ,we create an isolated environment to try out new feature and merge them into master branch.</p>
+<h4>  To create a branch :-</h4>
+<strong>---> git branch branchName</strong>
+        
+	<h4>Now if we want to see all the branches :-</h4>
+<strong>---> git branch -a</strong>
+	<h4>To switch the branch :-</h4>
+<strong>--->	git checkout branchName</strong>
+<h4>To delete a branch :-</h4>
+<strong>git branch  -d(or -D) branchName <br>
+    -d -> if branch is merged. <br>
+    -D -> if branch is not merged.</strong>
+	<h3>Merging branches</h3>
+<p>To merge any branch we have to be on the branch that we want to merge into (i.e the master branch)</p>
+ <h4>And then just run the command :-</h4>
+<strong>----> git merge branchName</strong>
+	<h1>What is github?</h1>
+<ul>
+    <li>
+        Online service that host your project.
+    </li>
+    <li>
+        Can share your code with other developers.
+    </li>
+    <li>
+        The other developers can  download the projects and work on them.
+    </li>
+    <li>
+        They can re-upload the edits and merge them with main codebase.
+    </li>
+</ul>
+<p>to learn about github ,you can refer to <a href="https://www.youtube.com/watch?v=MMEIVh49pS8">Tanay's 2nd lesson</a></p>
+ 
+            
+        
+    
+</body>
+</html>
